@@ -41,3 +41,19 @@ Sample Output
 Explanation
 N = 6, and our non-decreasing list is {1, 2, 2, 3, 3, 4}. The values 2 and 3 both occur twice in the list, so we remove the two duplicate nodes. We then return our updated (ascending) list, which is {1, 2, 3, 4}.
 */
+
+// solution
+this.removeDuplicates = function(head) {
+    //Write your code here
+    let prev = head;
+
+    while (prev) {
+        let next = prev.next;
+
+        (next && prev.data == next.data) ?
+        (prev.next = next.next) :
+        (prev = prev.next);
+    }
+
+    return head;
+}
